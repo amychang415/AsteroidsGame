@@ -3,16 +3,14 @@ class Spaceship extends Floater
 	public Spaceship()
 {
 	corners = 3;  //the number of corners, a triangular floater has 3     
-	xCorners[] = new int[3];
-	System.out.println("We're initializing the Xcorners");
+	xCorners = new int[3];
 	xCorners[0] = 0;
-	xCorners[1] = 60;
-	xCorners[2] = 30;
-	System.out.println("We're initializing the Ycorners");
-	yCorners[] = new int[3];
-	yCorners[0] = 0;
-	yCorners[1] = 0;
-	yCorners[2] = 60;
+	xCorners[1] = 8;
+	xCorners[2] = -8;
+	yCorners = new int[3];
+	yCorners[0] = 8;
+	yCorners[1] = -8;
+	yCorners[2] = -8;
 	myColor = 255;   
 	myCenterX = 150;
 	myCenterY = 150;   
@@ -31,4 +29,64 @@ class Spaceship extends Floater
 	public void setPointDirection(int degrees) {myPointDirection = degrees;}
 	public double getPointDirection(){return myPointDirection;}
 
+	public void keyPressed()
+	{
+		if (key == 'a')
+		{
+			myDirectionX = -1;
+		}
+		if (key == 'd')
+		{
+			myDirectionX = 1;
+		}
+		if (key == 'w')
+		{
+			myDirectionY = -1;
+		}
+		if (key == 's')
+		{
+			myDirectionY = 1;
+		}
+	}
+
+	public void move ()
+	{  
+	if (keyPressed = true)
+	{
+	myCenterX += myDirectionX;
+	myCenterY += myDirectionY;
+
+	if(myCenterX >width){
+		myCenterX = 0;
+	}
+	else if (myCenterX<0){
+		myCenterX = width;
+	}
+	if(myCenterY >height){
+		myCenterY = 0;
+	}
+	else if (myCenterY < 0){
+		myCenterY = height;
+	}
+	}
 }
+
+	public void accelerate (double dAmount)
+	{  
+     //Accelerates the ship in
+     //the direction it is pointing
+     //(myPointDirection)
+	  
+     //convert the current direction the ship is
+     //pointing to radians
+     double dRadians =myPointDirection*(Math.PI/180);
+     
+     //change coordinates of direction of travel
+     myDirectionX += ((dAmount) * Math.cos(dRadians));
+     myDirectionY += ((dAmount) * Math.sin(dRadians));    
+}
+
+}
+
+
+
