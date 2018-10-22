@@ -4,13 +4,13 @@ class Spaceship extends Floater
 {
 	corners = 3;  //the number of corners, a triangular floater has 3     
 	xCorners = new int[3];
-	xCorners[0] = 0;
-	xCorners[1] = 8;
+	xCorners[0] = 16;
+	xCorners[1] = -8;
 	xCorners[2] = -8;
 	yCorners = new int[3];
-	yCorners[0] = 8;
+	yCorners[0] = 0;
 	yCorners[1] = -8;
-	yCorners[2] = -8;
+	yCorners[2] = 8;
 	myColor = 255;   
 	myCenterX = 150;
 	myCenterY = 150;   
@@ -29,7 +29,7 @@ class Spaceship extends Floater
 	public void setPointDirection(int degrees) {myPointDirection = degrees;}
 	public double getPointDirection(){return myPointDirection;}
 
-	public void keyPressed()
+	/*public void keyPressed()
 	{
 		if (key == 'a')
 		{
@@ -83,10 +83,33 @@ class Spaceship extends Floater
      
      //change coordinates of direction of travel
      myDirectionX += ((dAmount) * Math.cos(dRadians));
-     myDirectionY += ((dAmount) * Math.sin(dRadians));    
-}
+     myDirectionY += ((dAmount) * Math.sin(dRadians));*/    
+
+public void keyPressed()
+	{
+		if (key == 'a')
+		{
+			myDirectionX = -1;
+		}
+		if (key == 'd')
+		{
+			myDirectionX = 1;
+		}
+		if (key == 'w')
+		{
+			myDirectionY = -1;
+		}
+		if (key == 's')
+		{
+			myDirectionY = 1;
+		}
+		myPointDirection = sqrt(myDirextionX^2 + myDirectionY^2)
+	}
+public void Accelerates
 
 }
+
+
 
 
 
