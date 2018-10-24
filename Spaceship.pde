@@ -27,86 +27,45 @@ class Spaceship extends Floater
 	public void setDirectionY(double y){myDirectionY = y;} 
 	public double getDirectionY() {return myDirectionY;} 
 	public void setPointDirection(int degrees) {myPointDirection = degrees;}
-	public double getPointDirection(){return myPointDirection;}
-
-	/*public void keyPressed()
-	{
-		if (key == 'a')
-		{
-			myDirectionX = -1;
-		}
-		if (key == 'd')
-		{
-			myDirectionX = 1;
-		}
-		if (key == 'w')
-		{
-			myDirectionY = -1;
-		}
-		if (key == 's')
-		{
-			myDirectionY = 1;
-		}
-	}
-
-	public void move ()
-	{  
-	if (keyPressed = true)
-	{
-	myCenterX += myDirectionX;
-	myCenterY += myDirectionY;
-
-	if(myCenterX >width){
-		myCenterX = 0;
-	}
-	else if (myCenterX<0){
-		myCenterX = width;
-	}
-	if(myCenterY >height){
-		myCenterY = 0;
-	}
-	else if (myCenterY < 0){
-		myCenterY = height;
-	}
-	}
-}
-
-	public void accelerate (double dAmount)
-	{  
-     //Accelerates the ship in
-     //the direction it is pointing
-     //(myPointDirection)
-	  
-     //convert the current direction the ship is
-     //pointing to radians
-     double dRadians =myPointDirection*(Math.PI/180);
-     
-     //change coordinates of direction of travel
-     myDirectionX += ((dAmount) * Math.cos(dRadians));
-     myDirectionY += ((dAmount) * Math.sin(dRadians));*/    
+	public double getPointDirection(){return myPointDirection;}   
 
 public void keyPressed()
 	{
 		if (key == 'a')
 		{
 			myDirectionX = -1;
+			myPointDirection = atan((float)(myDirectionY/myDirectionX));
+			
 		}
 		if (key == 'd')
 		{
 			myDirectionX = 1;
+			myPointDirection = atan((float)(myDirectionY/myDirectionX));
+	
 		}
 		if (key == 'w')
 		{
 			myDirectionY = -1;
+			myPointDirection = atan((float)(myDirectionY/myDirectionX));
+			
 		}
 		if (key == 's')
 		{
 			myDirectionY = 1;
+			myPointDirection = atan((float)(myDirectionY/myDirectionX));
 		}
-		myPointDirection = sqrt(myDirextionX^2 + myDirectionY^2)
+		if (key == 'r')
+		{
+			accelerate();
+		}
+		
 	}
-public void Accelerates
+public void accelerate()
+{
+	myDirectionX = myDirectionX+Math.signum(myDirectionX);
+	myDirectionY = myDirectionX+Math.signum(myDirectionY);
 
+}
 }
 
 
