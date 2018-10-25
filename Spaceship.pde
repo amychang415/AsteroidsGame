@@ -34,25 +34,24 @@ public void keyPressed()
 		if (key == 'a')
 		{
 			myDirectionX = -1;
-			myPointDirection = atan((float)(myDirectionY/myDirectionX));
+			dRadians = atan((float)(Math.toRadians(myDirectionY/myDirectionX)));
 			
 		}
 		if (key == 'd')
 		{
 			myDirectionX = 1;
-			myPointDirection = atan((float)(myDirectionY/myDirectionX));
+			dRadians = atan((float)(Math.toRadians(myDirectionY/myDirectionX)));
 	
 		}
 		if (key == 'w')
 		{
 			myDirectionY = -1;
-			myPointDirection = atan((float)(myDirectionY/myDirectionX));
-			
+			dRadians = atan((float)(Math.toRadians(myDirectionY/myDirectionX)));			
 		}
 		if (key == 's')
 		{
 			myDirectionY = 1;
-			myPointDirection = atan((float)(myDirectionY/myDirectionX));
+			dRadians = atan((float)(Math.toRadians(myDirectionY/myDirectionX)));
 		}
 		if (key == 'r')
 		{
@@ -62,8 +61,8 @@ public void keyPressed()
 	}
 public void accelerate()
 {
-	myDirectionX = myDirectionX+Math.signum(myDirectionX);
-	myDirectionY = myDirectionX+Math.signum(myDirectionY);
+	myDirectionX = myDirectionX + Math.signum(myDirectionX)/3;
+	myDirectionY = myDirectionY + Math.signum(myDirectionY)/3;
 
 }
 }
