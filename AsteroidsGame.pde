@@ -10,5 +10,5 @@ public void draw()
   background(0);
   ship.show();
   ship.keyPressed();
-  ship.move();
+
 }
