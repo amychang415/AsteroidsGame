@@ -28,50 +28,6 @@ class Spaceship extends Floater
 	public double getDirectionY() {return myDirectionY;} 
 	public void setPointDirection(int degrees) {myPointDirection = degrees;}
 	public double getPointDirection(){return myPointDirection;}   
-
-public void keyPressed()
-	{
-		if (key == 'a')
-		{
-			myDirectionX = -1;
-			move();
-			turn((int)Math.toRadians((atan((float)(myDirectionY/myDirectionX)))));
-			
-			
-		}
-		if (key == 'd')
-		{
-			myDirectionX = 1;
-			move();
-			turn((int)Math.toRadians((atan((float)(myDirectionY/myDirectionX)))));
-			
-		}
-		if (key == 'w')
-		{
-			myDirectionY = -1;
-			move();
-			turn((int)Math.toRadians((atan((float)(myDirectionY/myDirectionX)))));
-			//dRadians = atan((float)(Math.toRadians(myDirectionY/myDirectionX)));			
-		}
-		if (key == 's')
-		{
-			myDirectionY = 1;
-			move();
-			turn((int)Math.toRadians((atan((float)(myDirectionY/myDirectionX)))));
-			//dRadians = atan((float)(Math.toRadians(myDirectionY/myDirectionX)));
-		}
-		if (key == 'r')
-		{
-			accelerate(2);
-		}
-		
-	}
-// void accelerate()
-//{
-	//myDirectionX = myDirectionX + Math.signum(myDirectionX)/3;
-	//myDirectionY = myDirectionY + Math.signum(myDirectionY)/3;
-
-//}
 }
 
 
