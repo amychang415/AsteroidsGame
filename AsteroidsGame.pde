@@ -38,25 +38,30 @@ public void keyPressed()
 		if (key == 'w')
 		{
 		
-			if (ship.getDirectionX() > 5 || ship.getDirectionX() < -5)
-			{
-			ship.setDirectionX((int)Math.signum(ship.getX())*5);
-			}
-
-			else if (ship.getDirectionY() > 5 || ship.getDirectionY() < -5)
-			{
-			ship.setDirectionY((int)Math.signum(ship.getDirectionY())*5);
-			}
-			else if (ship.getDirectionX() < 5 || ship.getDirectionY() < 5 || ship.getDirectionX() > -5 || ship.getDirectionY() > -5)
+	
+			if (((ship.getDirectionX() < 5) && (ship.getDirectionX() > -5) || ((ship.getDirectionY() > -5) && (ship.getDirectionY() < 5)))
 			{
 			ship.accelerate(1);
 			}
-			
+			else 
+			{
+				if ((ship.getDirectionY() >= 5) || (ship.getDirectionY() <= -5))
+				{
+				ship.setDirectionY((int)Math.signum(ship.getDirectionY())*5);
+				}
+				if ((ship.getDirectionX() >= 5) || (ship.getDirectionX() <= -5))
+				{
+				ship.setDirectionX((int)Math.signum(ship.getX())*5);
+				}
+			}
 
 		}
 		if (key == 'r')
 		{
-			ship.setX((int)(Math.random()*width));
+			ship.setDirectionX(0);
+			ship.setDirectionY(0);
+			ship.setPointDirection((int)(Math.random()*360));
 			ship.setY((int)(Math.random()*height));
+			ship.setX((int)(Math.random()*width));
 		}
 	}
