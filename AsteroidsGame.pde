@@ -37,23 +37,24 @@ public void keyPressed()
 		}
 		if (key == 'w')
 		{
-		
-	
-			if (((ship.getDirectionX() < 5) && (ship.getDirectionX() > -5) || ((ship.getDirectionY() > -5) && (ship.getDirectionY() < 5)))
-			{
 			ship.accelerate(1);
-			}
-			else 
+			if (ship.getDirectionY() >= 5)
 			{
-				if ((ship.getDirectionY() >= 5) || (ship.getDirectionY() <= -5))
-				{
-				ship.setDirectionY((int)Math.signum(ship.getDirectionY())*5);
-				}
-				if ((ship.getDirectionX() >= 5) || (ship.getDirectionX() <= -5))
-				{
-				ship.setDirectionX((int)Math.signum(ship.getX())*5);
-				}
+				ship.setDirectionY(5);
 			}
+			if (ship.getDirectionY() <= -5)
+			{
+				ship.setDirectionY(-5);
+			}
+			if (ship.getDirectionX() >= 5)
+			{
+				ship.setDirectionX(5);
+			}
+			if (ship.getDirectionX() <= -5)
+			{
+				ship.setDirectionX(-5);
+			}
+
 
 		}
 		if (key == 'r')
