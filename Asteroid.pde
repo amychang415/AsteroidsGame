@@ -1,21 +1,26 @@
-class Asteroid extends floater
+class Asteroid extends Floater
 {
 	private int size;
-	Asteroid()
+	int corners = 11;
+	int[] xCorners = new int[corners];
+	int[] yCorners = new int[corners];
+	Asteroid(int x, int y)
 	{
-		size = Math.random()*50+50;
+		size = (int)(Math.random()*50+50);
 		corners = 11;
-		xCorners = new int[11];
-		for (int i = 0; i <= XCorners.length; i ++)
+		
+		for (int i = 0; i < xCorners.length; i ++)
 		{
-			xCorners[i] = Math.random()*size 
+			xCorners[i] = (int)(Math.random()*size); 
 		}
-		yCorners = new int[11];
-		for (int i = 0; i <= YCorners.length; i ++)
+		
+		for (int i = 0; i < yCorners.length; i ++)
 		{
-			yCorners[i] = Math.random()*size 
+			yCorners[i] = (int)(Math.random()*size); 
 		}
-
+		myCenterX=x;
+		myCenterY=y;
+	}
 
 	public void setX(int x) {myCenterX = x;}  
 	public int getX() {return (int)myCenterX;}

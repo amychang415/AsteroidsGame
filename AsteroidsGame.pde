@@ -1,5 +1,6 @@
 Spaceship ship;
 Star[] stars;
+Asteroid[] asteroids;
 public void setup() 
 {
 	size(500, 500);
@@ -10,8 +11,12 @@ public void setup()
 		stars[i] = new Star((int)(Math.random()*height),(int)(Math.random()*width));
 
 	}
+	asteroids = new Asteroid[10];
+	for (int i = 0; i < asteroids.length; i++)
+	{
+		asteroids[i] = new Asteroid((int)(Math.random()*height),(int)(Math.random()*width));
 
-
+	}
 }
 public void draw() 
 {
@@ -21,6 +26,11 @@ public void draw()
   	for (int i = 0; i < stars.length; i++)
 	{
 		stars[i].show();
+
+	}
+	for (int i = 0; i < asteroids.length; i++)
+	{
+		asteroids[i].show();
 
 	}
 }
@@ -54,8 +64,6 @@ public void keyPressed()
 			{
 				ship.setDirectionX(-5);
 			}
-
-
 		}
 		if (key == 'r')
 		{

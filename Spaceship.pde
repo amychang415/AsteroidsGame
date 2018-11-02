@@ -3,11 +3,11 @@ class Spaceship extends Floater
 	public Spaceship()
 {
 	corners = 3;  //the number of corners, a triangular floater has 3     
-	xCorners = new int[3];
+	xCorners = new int[corners];
 	xCorners[0] = 16;
 	xCorners[1] = -8;
 	xCorners[2] = -8;
-	yCorners = new int[3];
+	yCorners = new int[corners];
 	yCorners[0] = 0;
 	yCorners[1] = -8;
 	yCorners[2] = 8;
