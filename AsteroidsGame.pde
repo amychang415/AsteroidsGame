@@ -14,8 +14,7 @@ public void setup()
 	asteroids = new Asteroid[10];
 	for (int i = 0; i < asteroids.length; i++)
 	{
-		asteroids[i] = new Asteroid((int)(Math.random()*height),(int)(Math.random()*width));
-
+		asteroids[i] = new Asteroid();
 	}
 }
 public void draw() 
@@ -31,6 +30,7 @@ public void draw()
 	for (int i = 0; i < asteroids.length; i++)
 	{
 		asteroids[i].show();
+		asteroids[i].move();
 
 	}
 }
