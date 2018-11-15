@@ -1,6 +1,6 @@
 class Asteroid extends Floater
 {
-	private int rotspeed = (int)((Math.random()*360)-180);
+	private int rotspeed = (int)((Math.random()*5)-3);
 
 	public Asteroid()
 	{
@@ -30,8 +30,8 @@ class Asteroid extends Floater
 		myColor = color(255);
 		myCenterY= (int)(Math.random()*height);
 		myCenterX= (int)(Math.random()*width);
-		myDirectionX = (int)(Math.random()*5);
-		myDirectionY = (int)(Math.random()*5);
+		myDirectionX = (int)(Math.random()*3);
+		myDirectionY = (int)(Math.random()*3);
 		myPointDirection = 0;
 	}
 
@@ -51,5 +51,7 @@ class Asteroid extends Floater
 		turn(rotspeed);
 		super.move();
 	}
+
+
 
 }
