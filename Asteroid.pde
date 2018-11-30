@@ -50,6 +50,11 @@ class Asteroid extends Floater
 	{
 		turn(rotspeed);
 		super.move();
+		if (myDirectionX == 0 && myDirectionY == 0)
+		{
+			myDirectionX = (int)(Math.random()*3-1);
+			myDirectionY = (int)(Math.random()*3-1);
+		}
 	}
 
 

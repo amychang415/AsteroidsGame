@@ -1,19 +1,19 @@
-class Spaceship extends Floater  
+class Life extends Floater  
 { 
-	public Spaceship()
+	public Life(int lives)
 {
 	corners = 3;  //the number of corners, a triangular floater has 3     
 	xCorners = new int[corners];
-	xCorners[0] = 16;
-	xCorners[1] = -8;
-	xCorners[2] = -8;
+	xCorners[0] = 8;
+	xCorners[1] = -4;
+	xCorners[2] = -4;
 	yCorners = new int[corners];
 	yCorners[0] = 0;
-	yCorners[1] = -8;
-	yCorners[2] = 8;
+	yCorners[1] = -4;
+	yCorners[2] = 4;
 	myColor = 255;   
-	myCenterX = width/2;
-	myCenterY = height/2;   
+	myCenterX = lives*20+20;
+	myCenterY = 60;   
 	myDirectionX = 0;
 	myDirectionY = 0; //holds x and y coordinates of the vector for direction of travel   
 	myPointDirection = -90;
@@ -29,8 +29,3 @@ class Spaceship extends Floater
 	public void setPointDirection(int degrees) {myPointDirection = degrees;}
 	public double getPointDirection(){return myPointDirection;}   
 }
-
-
-
-
-

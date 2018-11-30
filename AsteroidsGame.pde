@@ -1,7 +1,10 @@
+ArrayList <Life> lives;
 Spaceship ship;
 Star[] stars;
 ArrayList <Asteroid> asteroids;
 ArrayList <Bullet> bullets;
+int life = 3;
+int points = 0;
 public void setup() 
 {
 	size(500, 500);
@@ -18,35 +21,59 @@ public void setup()
 		asteroids.add(new Asteroid());
 	}
 	bullets = new ArrayList<Bullet>();
+	lives = new ArrayList<Life>();
+	for (int i = 0; i < life; i++)
+	{
+		lives.add(new Life(i));
+	}
+
 }
 public void draw() 
 {
-  background(0);
-  ship.show();
-  ship.move();
+	//textAlign(LEFT);
+	background(0);
+	fill(255);
+	textSize(32);
+	text(points, 10, 40);
+	text("00", 30, 40);
+
+	ship.show();
+	ship.move();
+
   	for (int i = 0; i < stars.length; i++)
 	{
 		stars[i].show();
 
+	}
+	for (int i = 0; i < life; i++)
+	{
+		lives.get(i).show();
 	}
 	for (int i = 0; i < asteroids.size(); i++)
 	{
 		
 		asteroids.get(i).move();
 		asteroids.get(i).show();
-		/*if (dist(asteroids.get(i).getX(), asteroids.get(i).getY(), ship.getX(), ship.getY()) <= 30)
+		if (dist(asteroids.get(i).getX(), asteroids.get(i).getY(), ship.getX(), ship.getY()) <= 30)
 		{
-		asteroids.remove(i);	
-		}*/
+		asteroids.remove(i);
+		life--;
+		ship.setX(width/2);
+		ship.setY(height/2);
+		ship.setDirectionX(0);
+		ship.setDirectionY(0);
+		ship.setPointDirection(-90);
+		}
 	}
 	for (int i = 0; i < bullets.size(); i++)
 	{
 		for (int n = 0; n < asteroids.size(); n++)
 		{
-			if (dist(asteroids.get(n).getX(), asteroids.get(n).getY(), bullets.get(i).getX(), bullets.get(i).getY()) <=10)
+			if (dist(asteroids.get(n).getX(), asteroids.get(n).getY(), bullets.get(i).getX(), bullets.get(i).getY()) <=20)
 			{
 				asteroids.remove(n);
 				bullets.remove(i);
+				points = points+1;
 				break;	
 			}
 		}
@@ -58,7 +85,13 @@ public void draw()
 		bullets.get(i).move();
 		bullets.get(i).show();
 	}
-
+	/*if (life <= 0)
+	{
+		background(0);
+		textSize(100);
+		textAlign(CENTER);
+		text("Game Over", width/2, height/2);
+	}*/
 
 
 }
