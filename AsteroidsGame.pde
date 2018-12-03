@@ -3,10 +3,12 @@ Spaceship ship;
 Star[] stars;
 ArrayList <Asteroid> asteroids;
 ArrayList <Bullet> bullets;
+Fire fire;
 int life = 3;
 int points = 0;
 public void setup() 
 {
+	fire = new Fire();
 	size(500, 500);
 	ship = new Spaceship();
 	stars = new Star[400];
@@ -93,7 +95,11 @@ public void draw()
 		text("Game Over", width/2, height/2);
 	}*/
 
-
+			fire.setX(ship.getX());
+			fire.setY(ship.getY());
+			fire.setPointDirection((int)ship.getPointDirection());
+			fire.setDirectionX(ship.getDirectionX());
+			fire.setDirectionY(ship.getDirectionY());
 }
 
 public void keyPressed()
@@ -125,6 +131,7 @@ public void keyPressed()
 			{
 				ship.setDirectionX(-5);
 			}
+			fire.show();
 		}
 		if (key == 'r')
 		{
@@ -139,5 +146,6 @@ public void keyPressed()
 			bullets.add(new Bullet(ship));
 
 		}
+
 	}
 
