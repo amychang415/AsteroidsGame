@@ -11,7 +11,7 @@ class Fire extends Floater
 	yCorners[0] = 0;
 	yCorners[1] = -4;
 	yCorners[2] = 4;
-	myColor = 255;   
+	myColor = color(255, 204, 0);   
 	myCenterX = width/2;
 	myCenterY = height/2;   
 	myDirectionX = 0;

@@ -6,6 +6,7 @@ ArrayList <Bullet> bullets;
 Fire fire;
 int life = 3;
 int points = 0;
+boolean wPressed = false;
 public void setup() 
 {
 	fire = new Fire();
@@ -41,6 +42,7 @@ public void draw()
 
 	ship.show();
 	ship.move();
+	
 
   	for (int i = 0; i < stars.length; i++)
 	{
@@ -51,6 +53,12 @@ public void draw()
 	{
 		lives.get(i).show();
 	}
+
+	if (wPressed == true)
+	{
+	fire.show();
+	}
+	
 	for (int i = 0; i < asteroids.size(); i++)
 	{
 		
@@ -131,7 +139,7 @@ public void keyPressed()
 			{
 				ship.setDirectionX(-5);
 			}
-			fire.show();
+			wPressed = true;
 		}
 		if (key == 'r')
 		{
@@ -148,4 +156,11 @@ public void keyPressed()
 		}
 
 	}
+public void keyReleased()
+{
+	if (key == 'w')
+	{
+		wPressed = false;
+	}
+}
 

@@ -4,6 +4,9 @@ class Asteroid extends Floater
 
 	public Asteroid()
 	{
+		double x = Math.random();
+		if (x > 0.5)
+		{
 		corners = 10;
 		xCorners = new int[corners];
 		yCorners = new int[corners];
@@ -27,6 +30,38 @@ class Asteroid extends Floater
 		yCorners[7] = 3*2;
 		yCorners[8] = 6*2;
 		yCorners[9] = 0*2;
+	}
+	else 
+	{
+		corners = 10;
+		xCorners = new int[corners];
+		yCorners = new int[corners];
+		xCorners[0] = -2*4;
+		xCorners[1] = 0;
+		xCorners[2] = 4*4;
+		xCorners[3] = 3*4;
+		xCorners[4] = 0;
+		xCorners[5] = 3*4;
+		xCorners[6] = -2*4;
+		xCorners[7] = -1*4;
+		xCorners[8] = -2*4;
+		xCorners[9] = -3*4;
+
+
+
+		yCorners[0] = 2*4;
+		yCorners[1] = 3*4;
+		yCorners[2] = 2*4;
+		yCorners[3] = 1*4;
+		yCorners[4] = 0;
+		yCorners[5] = -2*4;
+		yCorners[6] = -3*4;
+		yCorners[7] = 0*4;
+		yCorners[8] = -2*4;
+		yCorners[9] = 3*4;
+
+		
+	}
 		myColor = color(255);
 		myCenterY= (int)(Math.random()*height);
 		myCenterX= (int)(Math.random()*width);
