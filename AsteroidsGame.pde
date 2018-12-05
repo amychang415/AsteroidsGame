@@ -7,6 +7,7 @@ Fire fire;
 int life = 3;
 int points = 0;
 boolean wPressed = false;
+int x = 0;
 public void setup() 
 {
 	fire = new Fire();
@@ -33,6 +34,7 @@ public void setup()
 }
 public void draw() 
 {
+	noFill();
 	//textAlign(LEFT);
 	background(0);
 	fill(255);
@@ -56,7 +58,12 @@ public void draw()
 
 	if (wPressed == true)
 	{
-	fire.show();
+		if (x%5 == 0 || x%7 == 0 || x%3 == 0)
+		{
+		fire.show();
+	
+		}
+			x++;
 	}
 	
 	for (int i = 0; i < asteroids.size(); i++)

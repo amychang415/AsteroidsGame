@@ -7,58 +7,65 @@ class Asteroid extends Floater
 		double x = Math.random();
 		if (x > 0.5)
 		{
-		corners = 10;
+		corners = 12;
 		xCorners = new int[corners];
 		yCorners = new int[corners];
-		xCorners[0] = -10*2;
-		xCorners[1] = -5*2;
-		xCorners[2] = 0;
-		xCorners[3] = 5*2;
-		xCorners[4] = 8*2;
-		xCorners[5] = 3*2;
-		xCorners[6] = 5*2;
-		xCorners[7] = 0*2;
-		xCorners[8] = -5*2;
-		xCorners[9] = -4*2;
-		yCorners[0] = -5*2;
-		yCorners[1] = -10*2;
-		yCorners[2] = -6*2;
-		yCorners[3] = -9*2;
-		yCorners[4] = -5*2;
-		yCorners[5] = 0;
-		yCorners[6] = 5*2;
-		yCorners[7] = 3*2;
-		yCorners[8] = 6*2;
-		yCorners[9] = 0*2;
+		xCorners[0] = 3*4;
+		xCorners[1] = 4*4;
+		xCorners[2] = 2*4;
+		xCorners[3] = 3*4;
+		xCorners[4] = 0*4;
+		xCorners[5] = -5*4;
+		xCorners[6] = -6*4;
+		xCorners[7] = -8*4;
+		xCorners[8] = -6*4;
+		xCorners[9] = -7*4;
+		xCorners[10] = 0*4;
+		
+		xCorners[11] = -1*4;
+
+		yCorners[0] = 4*4;
+		yCorners[1] = 1*4;
+		yCorners[2] = 0*4;
+		yCorners[3] = -4*4;
+		yCorners[4] = -7*4;
+		yCorners[5] = -5*4;
+		yCorners[6] = -6*4;
+		yCorners[7] = -3*4;
+		yCorners[8] = 0*4;
+		yCorners[9] = 2*4;
+		yCorners[10] = 5*4;
+		yCorners[11] = 3*4;
 	}
 	else 
 	{
-		corners = 10;
+		corners = 12;
 		xCorners = new int[corners];
 		yCorners = new int[corners];
-		xCorners[0] = -2*4;
-		xCorners[1] = 0;
+		xCorners[0] = 2*4;
+		xCorners[1] = 4*4;
 		xCorners[2] = 4*4;
-		xCorners[3] = 3*4;
-		xCorners[4] = 0;
-		xCorners[5] = 3*4;
-		xCorners[6] = -2*4;
-		xCorners[7] = -1*4;
-		xCorners[8] = -2*4;
-		xCorners[9] = -3*4;
-
-
-
-		yCorners[0] = 2*4;
-		yCorners[1] = 3*4;
-		yCorners[2] = 2*4;
-		yCorners[3] = 1*4;
-		yCorners[4] = 0;
-		yCorners[5] = -2*4;
+		xCorners[3] = 2*4;
+		xCorners[4] = 4*4;
+		xCorners[5] = 2*4;
+		xCorners[6] = 1*4;
+		xCorners[7] = -2*4;
+		xCorners[8] = -4*4;
+		xCorners[9] = -4*4;
+		xCorners[10] = -1*4;
+		xCorners[11] = -2*4;
+		yCorners[0] = 4*4;
+		yCorners[1] = 2*4;
+		yCorners[2] = 1*4;
+		yCorners[3] = 0*4;
+		yCorners[4] = -2*4;
+		yCorners[5] = -4*4;
 		yCorners[6] = -3*4;
-		yCorners[7] = 0*4;
+		yCorners[7] = -4*4;
 		yCorners[8] = -2*4;
-		yCorners[9] = 3*4;
+		yCorners[9] = 1*4;
+		yCorners[10] = 2*4;
+		yCorners[11] = 4*4;
 
 		
 	}
