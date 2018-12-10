@@ -35,7 +35,7 @@ public void setup()
 public void draw() 
 {
 	noFill();
-	//textAlign(LEFT);
+	textAlign(LEFT);
 	background(0);
 	fill(255);
 	textSize(32);
@@ -102,13 +102,13 @@ public void draw()
 		bullets.get(i).move();
 		bullets.get(i).show();
 	}
-	/*if (life <= 0)
+	if (life <= 0)
 	{
 		background(0);
-		textSize(100);
+		textSize(90);
 		textAlign(CENTER);
 		text("Game Over", width/2, height/2);
-	}*/
+	}
 
 			fire.setX(ship.getX());
 			fire.setY(ship.getY());
@@ -155,11 +155,29 @@ public void keyPressed()
 			ship.setPointDirection((int)(Math.random()*360));
 			ship.setY((int)(Math.random()*height));
 			ship.setX((int)(Math.random()*width));
-		}
+		} 
 		if (key == 'f')
 		{
 			bullets.add(new Bullet(ship));
 
+		}
+		if (key == 'p')
+		{
+		background(0);
+		ship.setX(width/2);
+		ship.setY(height/2);
+		ship.setDirectionX(0);
+		ship.setDirectionY(0);
+		ship.setPointDirection(-90);
+		life = 3;
+		points = 0;
+		x = 0;
+		asteroids.clear();
+		bullets.clear();
+		for (int i = 0; i < 10; i++)
+			{
+			asteroids.add(new Asteroid());
+			}
 		}
 
 	}
