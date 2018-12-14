@@ -8,8 +8,10 @@ int life = 3;
 int points = 0;
 boolean wPressed = false;
 int x = 0;
+ArrayList <AsteroidMedium> asteroidsMedium;
 public void setup() 
 {
+	asteroidsMedium = new ArrayList<AsteroidMedium>();
 	fire = new Fire();
 	size(500, 500);
 	ship = new Spaceship();
@@ -35,12 +37,23 @@ public void setup()
 public void draw() 
 {
 	noFill();
-	textAlign(LEFT);
 	background(0);
 	fill(255);
 	textSize(32);
-	text(points, 10, 40);
-	text("00", 30, 40);
+	textAlign(LEFT);
+	
+	if (points == 0)
+	{
+		text("000", 10, 40);
+	}
+	else if (points >=10 && points < 100) 
+	{
+		text("0"+points, 10, 40);
+	}
+	else if (points > 0 && points < 10)
+	{
+		text("00"+points, 10, 40);
+	}
 
 	ship.show();
 	ship.move();
@@ -60,8 +73,7 @@ public void draw()
 	{
 		if (x%5 == 0 || x%7 == 0 || x%3 == 0)
 		{
-		fire.show();
-	
+			fire.show();
 		}
 			x++;
 	}
@@ -71,15 +83,34 @@ public void draw()
 		
 		asteroids.get(i).move();
 		asteroids.get(i).show();
+		
 		if (dist(asteroids.get(i).getX(), asteroids.get(i).getY(), ship.getX(), ship.getY()) <= 30)
 		{
-		asteroids.remove(i);
-		life--;
-		ship.setX(width/2);
-		ship.setY(height/2);
-		ship.setDirectionX(0);
-		ship.setDirectionY(0);
-		ship.setPointDirection(-90);
+			asteroids.remove(i);
+			life--;
+			ship.setX(width/2);
+			ship.setY(height/2);
+			ship.setDirectionX(0);
+			ship.setDirectionY(0);
+			ship.setPointDirection(-90);
+		}
+	}
+	if (asteroidsMedium.isEmpty() == false)
+	{
+		for (int i = 0; i < asteroidsMedium.size(); i++)
+		{
+			asteroidsMedium.get(i).move();
+			asteroidsMedium.get(i).show();
+	    	if (dist(asteroidsMedium.get(i).getX(), asteroidsMedium.get(i).getY(), ship.getX(), ship.getY()) <= 30)
+			{
+				asteroidsMedium.remove(i);
+				life--;
+				ship.setX(width/2);
+				ship.setY(height/2);
+				ship.setDirectionX(0);
+				ship.setDirectionY(0);
+				ship.setPointDirection(-90);
+			}
 		}
 	}
 	for (int i = 0; i < bullets.size(); i++)
@@ -88,10 +119,28 @@ public void draw()
 		{
 			if (dist(asteroids.get(n).getX(), asteroids.get(n).getY(), bullets.get(i).getX(), bullets.get(i).getY()) <=20)
 			{
-				asteroids.remove(n);
 				bullets.remove(i);
 				points = points+1;
+				asteroidsMedium.add(new AsteroidMedium(asteroids.get(n)));
+				asteroidsMedium.add(new AsteroidMedium(asteroids.get(n)));
+				asteroids.remove(n);
 				break;	
+			}
+		}
+	}
+	for (int i = 0; i < bullets.size(); i++)
+	{
+		if (asteroidsMedium.isEmpty() == false)
+		{
+			for (int a = 0; a < asteroidsMedium.size(); a++)
+			{
+				if (dist(asteroidsMedium.get(a).getX(), asteroidsMedium.get(a).getY(), bullets.get(i).getX(), bullets.get(i).getY()) <=20)
+				{
+					bullets.remove(i);
+					points = points+1;
+					asteroidsMedium.remove(a);
+					break;	
+				}
 			}
 		}
 	}
@@ -108,6 +157,15 @@ public void draw()
 		textSize(90);
 		textAlign(CENTER);
 		text("Game Over", width/2, height/2);
+	}
+
+	if (asteroids.isEmpty() == true  && asteroidsMedium.isEmpty() == true)
+	{
+
+		background(0);
+		textSize(90);
+		textAlign(CENTER);
+		text("You Win!", width/2, height/2);
 	}
 
 			fire.setX(ship.getX());
